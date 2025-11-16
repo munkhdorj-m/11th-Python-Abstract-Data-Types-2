@@ -19,9 +19,9 @@ Each node stores:
 -artist    
 
 Your linked list must support:   
--add_song(title, artist) → insert at end    
--delete_song(title) → delete first matching title 
--show_playlist() → numbered list         
+-add_song(title, artist) → insert at end     
+-delete_song(title) → delete first matching title    
+-show_playlist() → numbered list           
 -count_songs() → return number of tracks    
 
 Write a program that:
