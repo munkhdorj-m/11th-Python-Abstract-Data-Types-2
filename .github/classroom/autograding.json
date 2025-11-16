@@ -1,9 +1,9 @@
 {
     "tests": [
       {
-        "name": "exercise1",
+        "name": "Add and count",
         "setup": "sudo -H pip3 install -r requirements.txt",
-        "run": "pytest test_assignment.py::test1",
+        "run": "pytest test_assignment.py::test_playlist_add_and_count",
         "input": "",
         "output": "",
         "comparison": "included",
@@ -11,8 +11,17 @@
         "points": 1
       },
       {
-        "name": "exercise2",
-        "run": "pytest test_assignment.py::test2",
+        "name": "Delete",
+        "run": "pytest test_assignment.py::test_playlist_delete",
+        "input": "",
+        "output": "",
+        "comparison": "included",
+        "timeout": 5,
+        "points": 1
+      },
+      {
+        "name": "Show",
+        "run": "pytest test_assignment.py::test_playlist_show",
         "input": "",
         "output": "",
         "comparison": "included",
