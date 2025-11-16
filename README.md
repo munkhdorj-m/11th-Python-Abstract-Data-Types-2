@@ -11,7 +11,7 @@ https://drive.google.com/file/d/1jXGQdSvuUYjGXl-PUuHMUzKWEBGQoARL/view?usp=shari
 
 **Problem:**
  
-Linked List Music Playlist   
+**Linked List Music Playlist   **
 Create a SongNode and a LinkedList playlist.   
 
 Each node stores:   
