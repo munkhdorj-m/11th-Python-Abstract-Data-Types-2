@@ -1,4 +1,3 @@
-# Exercise 1
 class SongNode:
     def __init__(self, title, artist):
         self.title = title
@@ -11,18 +10,48 @@ class Playlist:
         self.head = None
 
     def add_song(self, title, artist):
-        # TODO: implement
-        pass
+        new = SongNode(title, artist)
+        if not self.head:
+            self.head = new
+            return
+
+        curr = self.head
+        while curr.next:
+            curr = curr.next
+        curr.next = new
 
     def delete_song(self, title):
-        # TODO: implement
-        pass
+        if not self.head:
+            return
+
+        if self.head.title == title:
+            self.head = self.head.next
+            return
+
+        curr = self.head
+        while curr.next and curr.next.title != title:
+            curr = curr.next
+
+        if curr.next:
+            curr.next = curr.next.next
 
     def show_playlist(self):
-        # numbered list
-        # "1. Imagine - John Lennon\n2. Hey Jude - The Beatles"
-        pass
+        curr = self.head
+        if not curr:
+            return ""
+
+        result = []
+        i = 1
+        while curr:
+            result.append(f"{i}. {curr.title} - {curr.artist}")
+            curr = curr.next
+            i += 1
+        return "\n".join(result)
 
     def count_songs(self):
-        # return integer count
-        pass
+        curr = self.head
+        count = 0
+        while curr:
+            count += 1
+            curr = curr.next
+        return count
