@@ -1,22 +1,27 @@
 import pytest
-from assignment import decimal_to_binary, bank_simulation, Stack, Queue
+from assignment import Playlist
+def test_playlist_add_and_count():
+    p = Playlist()
+    p.add_song("Imagine", "John Lennon")
+    p.add_song("Hey Jude", "The Beatles")
+    assert p.count_songs() == 2
 
-@pytest.mark.parametrize("num,expected", [
-    (0, "0"),
-    (1, "1"),
-    (4, "100"),
-    (7, "111"),
-    (13, "1101"),
-    (32, "100000"),
-])
-def test1(num, expected):
-    assert decimal_to_binary(num).strip() == expected.strip()
 
-@pytest.mark.parametrize("customers,expected", [
-    (["A"], "Serving: A"),
-    (["Alice", "Bob", "Charlie"], "Serving: Alice\nServing: Bob\nServing: Charlie"),
-    (["X", "Y"], "Serving: X\nServing: Y"),
-    ([], ""),   # empty queue
-])
-def test2(customers, expected):
-    assert bank_simulation(customers).strip() == expected.strip()
+def test_playlist_delete():
+    p = Playlist()
+    p.add_song("Imagine", "John Lennon")
+    p.add_song("Numb", "Linkin Park")
+    p.add_song("Hey Jude", "The Beatles")
+    p.delete_song("Numb")
+    assert p.count_songs() == 2
+
+
+def test_playlist_show():
+    p = Playlist()
+    p.add_song("Imagine", "John Lennon")
+    p.add_song("Hey Jude", "The Beatles")
+    expected = (
+        "1. Imagine - John Lennon\n"
+        "2. Hey Jude - The Beatles"
+    )
+    assert p.show_playlist() == expected
